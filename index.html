@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hope Watson | Partner Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #f7fafc;
+        }
+
+        header {
+            background: #fff;
+            padding: 1.5rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        nav a {
+            color: #2d3748;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #4299e1;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .about {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about h3 {
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .projects {
+            padding: 4rem 0;
+            background: #f7fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+
+        .project-content {
+            padding: 1.75rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #1a202c;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #4a5568;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #cbd5e0;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3182ce;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f7fafc;
+            color: #2d3748;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #edf2f7;
+            border-color: #cbd5e0;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: #4299e1;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Hope Watson</h1>
+                    <p class="subtitle">Resident Architect @ dbt Labs</p>
+                </div>
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Connect</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Resident Architect at dbt Labs</h2>
+                <p>I make data reliable. Simplicity is queen in engineering and that's what I do - reliability with simplicity. I previously worked in healthcare analytics building ML models and data pipelines.</p>
+                <p class="tagline">Focused on making data systems more reliable and easier to work with.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h3>About</h3>
+                <p>I'm a Resident Architect at dbt Labs working on data transformation tooling and helping companies implement modern data practices. Before dbt, I worked as a data scientist in healthcare at places like Alexion and Current Health, building ML models and data pipelines.</p>
+                <p>Most of my work involves helping teams move from ad-hoc SQL scripts to more maintainable, tested data transformations. I've also spent time teaching SQL, building automation pipelines, and implementing dbt in various environments.</p>
+                <p>Background in statistical genetics from my MPhil research, which is where I got into working with data in the first place.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Work</h2>
+            <p class="section-subtitle">From workshops to automation pipelines to research</p>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">🎨</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Style is Everything Workshop</h3>
+                        <p class="project-description">
+                            A comprehensive workshop teaching data transformation best practices and styling conventions. Includes both the codebase and a complete guide for workshop facilitators.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">dbt</span>
+                            <span class="tag">Workshop</span>
+                            <span class="tag">Shell</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HopeMWatson/lwt-style-is-everything" target="_blank" class="btn btn-primary">View Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">🔄</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Azure DevOps Pipeline Automation</h3>
+                        <p class="project-description">
+                            Sample dbt repository demonstrating automated reviewer policy enforcement using Azure DevOps pipelines. Shows how to integrate data quality checks into CI/CD workflows.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">dbt</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Azure DevOps</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HopeMWatson/dbt-azdo-reviewer-policy" target="_blank" class="btn btn-primary">View Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">🐍</div>
+                    <div class="project-content">
+                        <h3 class="project-title">dbt Python with Snowpark</h3>
+                        <p class="project-description">
+                            Hands-on lab exploring Python transformations in dbt using Snowpark. Demonstrates how to combine SQL and Python models for advanced analytics workflows.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">dbt</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Snowflake</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HopeMWatson/dbt-python-hands-on-lab-snowpark" target="_blank" class="btn btn-primary">View Repo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2025 Hope Watson. Building better data systems, one transformation at a time.</p>
+            <div class="social-links">
+                <a href="https://github.com/HopeMWatson" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/hopewatson" target="_blank">LinkedIn</a>
+                <a href="https://medium.com/@hopewatson" target="_blank">Medium</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
